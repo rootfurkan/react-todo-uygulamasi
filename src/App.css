@@ -1,0 +1,195 @@
+/* Reset + daha iyi box model */
+*{
+  box-sizing: border-box;
+}
+
+body{
+  margin: 0;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+}
+
+/* Sayfa arka plan + ortalama */
+.App{
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 48px 16px;
+  background: #f6f7fb;
+}
+
+/* İç container */
+.container{
+  width: 500px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+/* Create alanın (sende zaten var, biraz güzelleştirdim) */
+.todo-create{
+  width: 100%;
+  background: #ffffff;
+  border-radius: 14px;
+  padding: 16px;
+  box-shadow: 0 10px 24px rgba(0,0,0,0.06);
+  border: 1px solid rgba(0,0,0,0.06);
+
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Liste wrapper */
+.todo-list{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Todo kartı */
+.todo{
+  width: 100%;
+  background: #ffffff;
+  border-radius: 14px;
+  padding: 14px 14px;
+  box-shadow: 0 10px 24px rgba(0,0,0,0.06);
+  border: 1px solid rgba(0,0,0,0.06);
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+
+  transition: transform .15s ease, box-shadow .15s ease;
+}
+
+.todo:hover{
+  transform: translateY(-2px);
+  box-shadow: 0 14px 30px rgba(0,0,0,0.08);
+}
+
+/* Todo metni */
+.todo-text{
+  font-size: 15px;
+  color: #1f2937;
+  font-weight: 600;
+  line-height: 1.4;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Aksiyonlar */
+.todo-actions{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* İkonlar */
+.icon{
+  font-size: 22px;
+  cursor: pointer;            /* İSTEDİĞİN */
+  transition: transform .12s ease, opacity .12s ease;
+  opacity: .9;
+}
+
+.icon:hover{
+  transform: scale(1.08);
+  opacity: 1;
+}
+
+/* Renk önerileri (istersen değiştirirsin) */
+.icon-delete{
+  color: #ef4444;
+}
+
+.icon-edit{
+  color: #2563eb;
+}
+.icon-edit-success{
+  color: #2ad100;
+}
+
+/* Mobil */
+@media (max-width: 520px){
+  .container{
+    width: 100%;
+  }
+  .todo-text{
+    max-width: 220px;
+  }
+}
+
+/* Todo oluşturma alanı */
+.todo-create{
+  width: 100%;
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 16px;
+  box-shadow: 0 10px 24px rgba(0,0,0,0.06);
+  border: 1px solid rgba(0,0,0,0.06);
+
+  display: flex;
+  flex-direction: row !important;   /* 🔥 KRİTİK */
+  align-items: center;
+  gap: 12px;
+}
+
+
+/* Input */
+.todo-input{
+  flex: 1;                     /* 🔥 GENİŞLİĞİ BU SAĞLIYOR */
+  width: 100%;
+  height: 54px;
+  padding: 0 16px;
+  border-radius: 14px;
+  border: 1px solid #e5e7eb;
+  outline: none;
+  font-size: 15px;
+  font-weight: 500;
+  transition: border .15s ease, box-shadow .15s ease;
+}
+
+.todo-input::placeholder{
+  color: #9ca3af;
+}
+
+.todo-input:focus{
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37,99,235,0.12);
+}
+
+/* Button */
+.todo-button{
+  height: 54px;
+  min-width: 120px;
+  border-radius: 14px;
+  border: none;
+  background: #2563eb;
+  color: #fff;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background .15s ease, transform .12s ease, box-shadow .12s ease;
+}
+
+.todo-button:hover{
+  background: #1e40af;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 14px rgba(37,99,235,0.3);
+}
+
+.todo-button:active{
+  transform: scale(.97);
+}
+
